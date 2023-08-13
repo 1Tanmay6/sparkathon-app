@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "958681347293",
+    "project_id": "sparkathon-13bc4",
+    "storage_bucket": "sparkathon-13bc4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958681347293:android:462e2b1d2e7d86220bd734",
+        "android_client_info": {
+          "package_name": "com.example.sparkathon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "958681347293-ts08i2teh59ffhdf00954ea9en3gdkek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP3zE42FAiGVYi6P-1K11ozN0dQm8rMtA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "958681347293-ts08i2teh59ffhdf00954ea9en3gdkek.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
