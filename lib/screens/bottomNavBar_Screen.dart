@@ -4,7 +4,7 @@ import 'package:animations/animations.dart';
 
 import 'video_feed_Screen.dart';
 import 'Explore_Screen.dart';
-import 'Messages_Screen.dart';
+import 'chat_home_screen.dart';
 import 'Profile_Screen.dart';
 import '../providers/content_provider.dart';
 import '../models/Video.dart';
@@ -58,7 +58,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
         },
       ),
       const ExploreScreen(),
-      const MessasgesScreen(),
+      const ChatHomeScreen(),
       const ProfileScreen(),
     ];
 

@@ -8,6 +8,8 @@ import 'screens/auth_Screen.dart';
 import 'screens/bottomNavBar_Screen.dart';
 import 'providers/auth_provider.dart';
 import '/providers/content_provider.dart';
+import 'screens/chat_home_screen.dart';
+import 'widgets/chat_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,84 +35,86 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-          title: 'Quantum',
-          theme: ThemeData(
-              colorScheme: const ColorScheme(
-                brightness: Brightness.dark,
-                primary: Color(0xFF1c1c1e),
-                onPrimary: Color(0xFFf5f5f5),
-                secondary: Color(0xFF65D2E9), // Cyan
-                onSecondary: Color(0xFFf5f5f5),
-                error: Color.fromARGB(255, 224, 17, 17), // Red for error
-                onError: Colors.black,
-                background: Color(0xFF1c1c1e),
-                onBackground: Color(0xFFf5f5f5),
-                surface: Color(0xFFE6436D), // Red surface
-                onSurface: Colors.black,
-              ),
-              useMaterial3: true,
-              textTheme: TextTheme(
-                displayLarge: TextStyle(
-                  fontFamily: 'Montserrat',
-                  fontSize: MediaQuery.of(context).size.height * 0.035,
-                  fontWeight: FontWeight.w600,
-                ),
-                bodySmall: TextStyle(
-                  fontFamily: 'Montserrat',
-                  fontSize: MediaQuery.of(context).size.height * 0.015,
-                  fontWeight: FontWeight.normal,
-                ),
-                bodyMedium: TextStyle(
-                  fontFamily: 'Montserrat',
-                  fontSize: MediaQuery.of(context).size.height * 0.015,
-                  fontWeight: FontWeight.normal,
-                ),
-              )).copyWith(
-            pageTransitionsTheme: const PageTransitionsTheme(
-              builders: <TargetPlatform, PageTransitionsBuilder>{
-                TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-              },
+        title: 'Quantum',
+
+        theme: ThemeData(
+            colorScheme: const ColorScheme(
+              brightness: Brightness.dark,
+              primary: Color(0xFF1c1c1e),
+              onPrimary: Color(0xFFf5f5f5),
+              secondary: Color(0xFF65D2E9), // Cyan
+              onSecondary: Color(0xFFf5f5f5),
+              error: Color.fromARGB(255, 224, 17, 17), // Red for error
+              onError: Colors.black,
+              background: Color(0xFF1c1c1e),
+              onBackground: Color(0xFFf5f5f5),
+              surface: Color(0xFFE6436D), // Red surface
+              onSurface: Colors.black,
             ),
+            useMaterial3: true,
+            textTheme: TextTheme(
+              displayLarge: TextStyle(
+                fontFamily: 'Montserrat',
+                fontSize: MediaQuery.of(context).size.height * 0.035,
+                fontWeight: FontWeight.w600,
+              ),
+              bodySmall: TextStyle(
+                fontFamily: 'Montserrat',
+                fontSize: MediaQuery.of(context).size.height * 0.015,
+                fontWeight: FontWeight.normal,
+              ),
+              bodyMedium: TextStyle(
+                fontFamily: 'Montserrat',
+                fontSize: MediaQuery.of(context).size.height * 0.015,
+                fontWeight: FontWeight.normal,
+              ),
+            )).copyWith(
+          pageTransitionsTheme: const PageTransitionsTheme(
+            builders: <TargetPlatform, PageTransitionsBuilder>{
+              TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+            },
           ),
-          // darkTheme: ThemeData(
-          //   colorScheme: const ColorScheme(
-          //     brightness: Brightness.light,
-          //     primary: Color(0xFFf5f5f5),
-          //     onPrimary: Color(0xFF000000),
-          //     secondary: Color(0xFF65D2E9), // Cyan
-          //     onSecondary: Color(0xFFf5f5f5),
-          //     error: Color(0xFFE6436D), // Red for error
-          //     onError: Colors.black,
-          //     background: Color(0xFFFFFFFF), // White background
-          //     onBackground: Color(0xFF0C4160),
-          //     surface: Color(0xFFE6436D), // Red surface
-          //     onSurface: Colors.black,
-          //   ),
-          //   useMaterial3: true,
-          //   textTheme: TextTheme(
-          //     displayLarge: TextStyle(
-          //       fontFamily: 'Montserrat',
-          //       fontSize: MediaQuery.of(context).size.height * 0.035,
-          //       fontWeight: FontWeight.w600,
-          //     ),
-          //     bodySmall: TextStyle(
-          //       fontFamily: 'Montserrat',
-          //       fontSize: MediaQuery.of(context).size.height * 0.015,
-          //       fontWeight: FontWeight.normal,
-          //     ),
-          //     bodyMedium: TextStyle(
-          //       fontFamily: 'Montserrat',
-          //       fontSize: MediaQuery.of(context).size.height * 0.015,
-          //       fontWeight: FontWeight.normal,
-          //     ),
-          //   ),
-          //   pageTransitionsTheme: const PageTransitionsTheme(
-          //     builders: <TargetPlatform, PageTransitionsBuilder>{
-          //       TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-          //     },
-          //   ),
-          // ),
-          home: AuthScreen()),
+        ),
+        // darkTheme: ThemeData(
+        //   colorScheme: const ColorScheme(
+        //     brightness: Brightness.light,
+        //     primary: Color(0xFFf5f5f5),
+        //     onPrimary: Color(0xFF000000),
+        //     secondary: Color(0xFF65D2E9), // Cyan
+        //     onSecondary: Color(0xFFf5f5f5),
+        //     error: Color(0xFFE6436D), // Red for error
+        //     onError: Colors.black,
+        //     background: Color(0xFFFFFFFF), // White background
+        //     onBackground: Color(0xFF0C4160),
+        //     surface: Color(0xFFE6436D), // Red surface
+        //     onSurface: Colors.black,
+        //   ),
+        //   useMaterial3: true,
+        //   textTheme: TextTheme(
+        //     displayLarge: TextStyle(
+        //       fontFamily: 'Montserrat',
+        //       fontSize: MediaQuery.of(context).size.height * 0.035,
+        //       fontWeight: FontWeight.w600,
+        //     ),
+        //     bodySmall: TextStyle(
+        //       fontFamily: 'Montserrat',
+        //       fontSize: MediaQuery.of(context).size.height * 0.015,
+        //       fontWeight: FontWeight.normal,
+        //     ),
+        //     bodyMedium: TextStyle(
+        //       fontFamily: 'Montserrat',
+        //       fontSize: MediaQuery.of(context).size.height * 0.015,
+        //       fontWeight: FontWeight.normal,
+        //     ),
+        //   ),
+        //   pageTransitionsTheme: const PageTransitionsTheme(
+        //     builders: <TargetPlatform, PageTransitionsBuilder>{
+        //       TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+        //     },
+        //   ),
+        // ),
+        home: const AuthScreen(),
+      ),
     );
   }
 }
