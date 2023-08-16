@@ -16,6 +16,9 @@ class ChatHomeScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: colorScheme.surface,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(100),
+        ),
         onPressed: () {},
         child: Icon(
           Icons.add,
@@ -23,11 +26,11 @@ class ChatHomeScreen extends StatelessWidget {
         ),
       ),
       backgroundColor: colorScheme.onPrimary,
-      body: content(colorScheme, textTheme),
+      body: content(colorScheme, textTheme, context),
     );
   }
 
-  Widget content(colorScheme, textTheme) {
+  Widget content(colorScheme, textTheme, BuildContext context) {
     List<ChatUsers> chatUsers = [
       ChatUsers(
         name: "Adam Yau",
@@ -70,42 +73,68 @@ class ChatHomeScreen extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       child: Column(
         children: [
-          const SafeArea(
+          SafeArea(
             child: Padding(
-              padding: EdgeInsets.only(left: 16, right: 16, top: 10),
+              padding: const EdgeInsets.only(left: 16, right: 16, top: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     "Messages",
                     style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  Icon(
+                    Icons.more_vert,
+                    color: colorScheme.primary,
+                  )
                 ],
               ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 16, top: 16, right: 16),
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: "Search...",
-                hintStyle: TextStyle(color: Colors.grey.shade600),
-                prefixIcon: Icon(
-                  Icons.search,
-                  color: Colors.grey.shade600,
-                  size: 20,
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.9,
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: colorScheme.primary.withOpacity(0.2),
+                    blurRadius: 10,
+                    spreadRadius: 5,
+                    offset: const Offset(0, 5),
+                  ),
+                ],
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: "Search...",
+                  hintStyle: TextStyle(color: Colors.grey.shade600),
+                  prefixIcon: Container(
+                    padding: const EdgeInsets.only(left: 8, right: 8),
+                    child: CircleAvatar(
+                      maxRadius: 3,
+                      backgroundColor: colorScheme.surface,
+                      child: Icon(
+                        Icons.search,
+                        color: colorScheme.onPrimary,
+                        size: 15,
+                      ),
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(
+                          color: colorScheme.primary.withOpacity(0.5))),
+                  contentPadding: const EdgeInsets.all(8),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(color: Colors.grey.shade100)),
                 ),
-                focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(
-                        color: colorScheme.primary.withOpacity(0.5))),
-                contentPadding: const EdgeInsets.all(8),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: Colors.grey.shade100)),
               ),
             ),
           ),
@@ -119,7 +148,7 @@ class ChatHomeScreen extends StatelessWidget {
                 onTap: (() => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Chat(),
+                      builder: (context) => const Chat(),
                     ))),
                 child: Column(
                   children: [
@@ -130,13 +159,6 @@ class ChatHomeScreen extends StatelessWidget {
                         isMessageRead:
                             (index == 0 || index == 3) ? true : false,
                         time: chatUsers[index].time),
-                    Divider(
-                      height: 2,
-                      thickness: 2,
-                      indent: 75,
-                      endIndent: 20,
-                      color: colorScheme.primary.withOpacity(0.2),
-                    )
                   ],
                 ),
               );

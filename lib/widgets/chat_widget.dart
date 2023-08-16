@@ -210,13 +210,13 @@ class Chat extends StatelessWidget {
                 ),
                 FloatingActionButton(
                   onPressed: () {},
+                  backgroundColor: colorScheme.surface,
+                  elevation: 0,
                   child: Icon(
                     Icons.send,
                     color: colorScheme.onPrimary,
                     size: 18,
                   ),
-                  backgroundColor: colorScheme.surface,
-                  elevation: 0,
                 )
               ],
             ),

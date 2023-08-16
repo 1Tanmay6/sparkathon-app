@@ -110,10 +110,6 @@ class AuthCardOverlayWidget extends StatelessWidget {
                       )),
                   onPressed: () {},
                   child: Container(
-                    child: Text(
-                      'Create an Account',
-                      style: style,
-                    ),
                     width: MediaQuery.of(context).size.width * 0.55,
                     height: MediaQuery.of(context).size.height * 0.05,
                     alignment: Alignment.center,
@@ -144,6 +140,10 @@ class AuthCardOverlayWidget extends StatelessWidget {
                                 .surface
                                 .withOpacity(0.9),
                           ]),
+                    ),
+                    child: Text(
+                      'Create an Account',
+                      style: style,
                     ),
                   ))
             ],

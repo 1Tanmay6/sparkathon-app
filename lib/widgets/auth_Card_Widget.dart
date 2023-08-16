@@ -7,7 +7,6 @@ class AuthCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context).size;
     return Stack(
       children: [
         SizedBox.expand(
@@ -16,7 +15,7 @@ class AuthCard extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        AuthCardOverlayWidget()
+        const AuthCardOverlayWidget()
       ],
     );
   }

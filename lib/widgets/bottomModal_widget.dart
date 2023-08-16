@@ -5,7 +5,7 @@ import '../models/Comment.dart';
 
 class ModalFit extends StatefulWidget {
   final List<Comment> comments;
-  ModalFit({
+  const ModalFit({super.key, 
     required this.comments,
   });
 

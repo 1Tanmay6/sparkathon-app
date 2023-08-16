@@ -9,7 +9,7 @@ import '../providers/content_provider.dart';
 
 class VideoFeedOverlayWidget extends StatefulWidget {
   final Video video;
-  VideoFeedOverlayWidget({required this.video});
+  const VideoFeedOverlayWidget({super.key, required this.video});
 
   @override
   State<VideoFeedOverlayWidget> createState() => _VideoFeedOverlayWidgetState();

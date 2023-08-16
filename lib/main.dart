@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:sparkathon/providers/explore_provider.dart';
 
 import 'firebase_options.dart';
 
+import '/providers/sanity_provider.dart';
 import 'screens/auth_Screen.dart';
-import 'screens/bottomNavBar_Screen.dart';
+
 import 'providers/auth_provider.dart';
 import '/providers/content_provider.dart';
-import 'screens/chat_home_screen.dart';
-import 'widgets/chat_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,6 +32,12 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<ContentProvider>(
           create: (context) => ContentProvider(),
+        ),
+        ChangeNotifierProvider<SanityProvider>(
+          create: (context) => SanityProvider(),
+        ),
+        ChangeNotifierProvider<ExlporeProvider>(
+          create: (context) => ExlporeProvider(),
         ),
       ],
       child: MaterialApp(

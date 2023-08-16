@@ -28,7 +28,7 @@ class ProfileScreen extends StatelessWidget {
                   authProvider.signOut(context);
                 },
                 child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
                     alignment: Alignment.center,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -37,7 +37,7 @@ class ProfileScreen extends StatelessWidget {
                           Icons.logout_rounded,
                           color: colorScheme.primary,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Text(
@@ -45,7 +45,7 @@ class ProfileScreen extends StatelessWidget {
                           style: textTheme.bodyMedium!.copyWith(
                               fontSize: 15, color: colorScheme.primary),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                       ],
@@ -83,7 +83,7 @@ class ProfileScreen extends StatelessWidget {
                         IconButton(
                             onPressed: () {},
                             icon: Container(
-                                padding: EdgeInsets.all(1),
+                                padding: const EdgeInsets.all(1),
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(100),
                                     color: Colors.transparent),
@@ -123,7 +123,7 @@ class ProfileScreen extends StatelessWidget {
                       Navigator.of(context).pushNamed('/auth');
                     },
                     child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 10),
+                        padding: const EdgeInsets.symmetric(vertical: 10),
                         decoration: BoxDecoration(
                           color: colorScheme.onPrimary,
                           borderRadius: BorderRadius.circular(8),

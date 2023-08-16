@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:animations/animations.dart';
@@ -7,10 +9,11 @@ import 'Explore_Screen.dart';
 import 'chat_home_screen.dart';
 import 'Profile_Screen.dart';
 import '../providers/content_provider.dart';
-import '../models/Video.dart';
 
 class BottomNavBarScreen extends StatefulWidget {
   static const routeName = '/bottomNavBar';
+
+  const BottomNavBarScreen({super.key});
   @override
   _BottomNavBarScreenState createState() => _BottomNavBarScreenState();
 }
@@ -39,13 +42,12 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   List list_all = [];
   @override
   Widget build(BuildContext context) {
-    final media = MediaQuery.of(context).size;
     final colorScheme = Theme.of(context).colorScheme;
 
     list = Provider.of<ContentProvider>(context).videoUrls;
     list_all = Provider.of<ContentProvider>(context).list;
 
-    final List<Widget> _widgetOptions = <Widget>[
+    final List<Widget> widgetOptions = <Widget>[
       VideoFeedScreen(
         content: list_all,
         contentSize: list.length, // Pass in the number of pages
@@ -76,7 +78,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
             child: child,
           );
         },
-        child: _widgetOptions[_selectedIndex],
+        child: widgetOptions[_selectedIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: colorScheme.primary,

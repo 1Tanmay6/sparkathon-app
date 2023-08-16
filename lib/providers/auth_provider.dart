@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -15,24 +17,22 @@ class AuthServices with ChangeNotifier {
   signInWithGoogle(BuildContext context) async {
     final GoogleSignInAccount? guser = await GoogleSignIn().signIn();
 
-    final GoogleSignInAuthentication? gauth = await guser!.authentication;
+    final GoogleSignInAuthentication gauth = await guser!.authentication;
 
     final credential = GoogleAuthProvider.credential(
-      accessToken: gauth!.accessToken,
+      accessToken: gauth.accessToken,
       idToken: gauth.idToken,
     );
     final res = await FirebaseAuth.instance.signInWithCredential(credential);
 
     user = res.user;
     _uid = res.user!.uid;
-    print(user!.displayName);
 
     if (_uid != '') {
-      print(_uid);
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => BottomNavBarScreen(),
+            builder: (context) => const BottomNavBarScreen(),
           ));
     }
     return res;
